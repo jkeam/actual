@@ -6,7 +6,7 @@ spec:
   ports:
     - name: web
       protocol: TCP
-      port: 8080
+      port: 5006
       targetPort: web
   type: ClusterIP
   selector:
