@@ -17,14 +17,27 @@ spec:
         image: actual-server
         imagePullPolicy: IfNotPresent
         ports:
-          - name: web
-            containerPort: 5006
+        - name: web
+          containerPort: 5006
         env:
-          - name: NODE_ENV
-            value: production
+        - name: NODE_ENV
+          value: production
         volumeMounts:
         - name: data
           mountPath: /data
+        securityContext:
+  	      allowPrivilegeEscalation: false
+  	      capabilities:
+    	      drop:
+    	      - ALL
+  	    runAsNonRoot: true
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
       volumes:
       - name: data
         persistentVolumeClaim:
