@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: app-finance
+
+commonLabels:
+  app: actual
+  app.kubernetes.io/name: actual
+
+images:
+- name: actual-server
+  newName: quay.io/jkeam/actual-server
+  digest: sha256:942d8fe481d8022be15325fbe8741bc5851b98bd2ef3a00b4a6c4c9a9584ebbc
+
+resources:
+- storage.yaml
+- deployment.yaml
+- service.yaml
+- route.yaml

@@ -2,6 +2,30 @@
   <img src="/demo.png" alt="Actualbudget" />
 </p>
 
+## Jon Notes
+
+### Building
+
+```shell
+cd ./packages/sync-server
+podman build -t quay.io/jkeam/actual-server -f ./Containerfile .
+# or ./build.sh
+```
+
+### Running
+
+#### Locally
+
+```shell
+podman run -p 8080:8080 -v YOUR/PATH/TO/DATA:/data --name actual quay.io/jkeam/actual-server
+```
+
+#### OpenShift
+
+```shell
+oc apply -k ./openshift
+```
+
 ## Getting Started
 
 Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.
@@ -66,7 +90,7 @@ To add new feature requests, open a new Issue of the "Feature Request" type.
 
 ### Translation
 
-Make Actual Budget accessible to more people by helping with the [Internationalization](https://actualbudget.org/docs/contributing/i18n/) of Actual. We are using a crowd sourcing tool to manage the translations, see our [Weblate Project](https://hosted.weblate.org/projects/actualbudget/). Weblate proudly supports open-source software projects through their [Libre plan](https://weblate.org/en/hosting/#libre). 
+Make Actual Budget accessible to more people by helping with the [Internationalization](https://actualbudget.org/docs/contributing/i18n/) of Actual. We are using a crowd sourcing tool to manage the translations, see our [Weblate Project](https://hosted.weblate.org/projects/actualbudget/). Weblate proudly supports open-source software projects through their [Libre plan](https://weblate.org/en/hosting/#libre).
 
 ## Repo Activity
 
